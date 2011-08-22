@@ -1,0 +1,37 @@
+URxvt.buffered: true
+ 
+# set colors
+URxvt.background: black
+URxvt.foreground: 7
+URxvt.cursorColor: green
+URxvt.underlineColor: green
+ 
+# set transparency
+URxvt.transparent: on
+URxvt.shading: 40
+ 
+# set fonts
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16,\
+xft:Firefly New Sung Mono:pixelsize=16
+#URxvt.font: xft:Anonymous Pro:pixelsize=18
+ 
+# set input method
+URxvt.inputMethod: gcin
+URxvt.preeditType: Root
+URxvt.imLocale: zh_TW.UTF-8
+ 
+# set tabs
+URxvt.perl-ext-common: default,tabbed,clipboard
+ 
+# set window size
+URxvt.geometry: 86x28
+ 
+# set clickable URLs
+URxvt.perl-ext        : default,matcher
+URxvt.urlLauncher     : /usr/bin/firefox
+URxvt.matcher.button  : 1
+ 
+# set misc
+URxvt.jumpScroll: True
+URxvt.cursorUnderline: False
+URxvt.cursorBlink: True

@@ -1,0 +1,98 @@
+define fp
+  file ProtoSet
+end
+
+define ft
+  file testinstr
+end
+
+define cc
+  cd /rd1_mnt/eNas3/users/tzuyung_shen/case/proto/DAC09
+  pwd
+end
+
+define cs
+  cd /rd1_mnt/eNas3/users/tzuyung_shen/case/proto/SPS0173447
+  pwd
+end
+
+#print ulUSN
+define pusn
+  print $arg0.toFullScope(0,5,0)
+end
+document pusn
+  print usn objec content
+end
+
+#print ulString
+define pus
+  printf "[%s] (%d)\n", $arg0.m_pchData, $arg0.m_nLen
+end
+document pus
+  print ulString content
+end
+
+#print CArgv
+define parg
+  printf "[%s]\n", $arg0.GetAsString(0,1)
+end
+document parg
+  print CArgv content
+end
+
+define dumphdb
+  print hdbDumpObj($arg0)
+end
+document dumphdb
+  dump hdbid by hdbDumpObj
+end
+
+#
+# ProtoLink
+#
+define pctx
+printf "(%d,%d) [%s]\n", $arg0.LineNo(), $arg0.WordNo(), $arg0.WordText()
+end
+
+define dispctx
+display $arg0.LineNo()
+display $arg0.WordNo()
+display $arg0.WordText()
+end
+
+# print permenant name
+define phdbid
+printf "%s (%p, %s)\n", (char*)hdbGetPermName((void*)$arg0), (void*)$arg0, (char*)hdbGetDbTypeStr((void*)$arg0)
+end
+document phdbid
+  print hdbid info
+end
+
+# print IdName
+define pidname
+  pqs $arg0.ToHierName()
+end
+document pidname
+  print IdName info
+end
+
+# print ModChangeInfo
+define pmod
+  pqs $arg0.InstPath()
+  print "("
+  pqs $arg0.ModuleName()
+  print ","
+  pqs $arg0.ConfigName()
+  print ")"
+end
+
+#
+# enhance kde-devel-gdb
+#
+
+define pqmapsize
+    set $map = $arg0
+    set $len = $map.d->size
+    output $len
+    printf "\n"
+end

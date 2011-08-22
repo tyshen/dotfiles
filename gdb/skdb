@@ -1,0 +1,32 @@
+
+define pid
+  p _dumpId($arg0)
+end
+
+define pusn
+  print $arg0.toFullScope(0,5,0)
+end
+document pusn
+  print usn objec content
+end
+
+define pidlist
+  set $idl=$arg0
+  set $i=0
+  while $idl[$i]!=0 && $i < $arg1
+    p scDumpObj($idl[$i])
+  end
+end
+document pidl
+  print id array
+end
+
+define pidl
+  if $arg0 > 0 && $arg1 != 0
+   p _dumpIdList($arg0,$arg1) 
+  end
+end
+document pidlist
+  print id array with _dumpIdList()
+end
+

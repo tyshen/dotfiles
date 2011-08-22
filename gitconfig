@@ -1,0 +1,34 @@
+[user]
+	name = Jerry
+	email = tzuyung@sps
+[color]
+	ui = true
+[alias]
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    logp = log -p
+    logg = log --graph --decorate --oneline
+    logl = log --oneline --pretty='format:%C(yellow) %h%d %Cred%cn %Creset%cd %Cred%m%Creset %s%Creset' --date=short
+    ls = ls-files
+    sbr = show-branch
+    difft= difftool
+    diffw= diff --word-diff
+    fdiff = diff --name-status
+[merge]
+	tool = kdiff3
+[log]
+	date = short
+	decorate = short
+[format]
+    #pretty = %C(yellow) %h%d %Cred%cn %Creset%cd %Cred%m%Creset %s%Creset
+[gc]
+	prune = "2 days ago"
+[difftool]
+	prompt = no
+[diff]
+	tool = vimdiff
+[mergetool "vimmerge"]
+    cmd = "vim --noplugin -d \"$PWD/$MERGED\"  +\":split $PWD/$REMOTE\" +\":set buftype=nowrite\" +\":vertical diffsplit $PWD/$LOCAL\" +\":set buftype=nowrite\"  +\":vertical diffsplit $PWD/$BASE\" +\":set buftype=nowrite\"  +\":wincmd j\" +\":nmap 1 :diffget BASE:diffupdate\"  +\":nmap 2 :diffget LOCAL:diffupdate\"  +\":nmap 3 :diffget REMOTE:diffupdate\" "

@@ -1,0 +1,57 @@
+vbell off
+escape `e
+#hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]'
+#hardstatus alwayslastline '%{= mK}%-Lw%{= KW}%50>%n%f* %t%{= mK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+#hardstatus alwayslastline " %-Lw%{= Bw}%n%f %t%{-}%+Lw %=| %0c:%s "
+hardstatus alwayslastline "%-Lw%{= BW}%50>%n%f*%t%{-}%+Lw%<"
+
+#screen -fn -t spx116 telnet spx116
+defscrollback 30000 # Use a 30000-line scrollback buffer
+startup_message off # Turn off the splash screen
+
+#caption always "%{= wk} %{= KY} [%n]%t @ %H %{-} %= %{= KR} %l %{-} | %{= KG} %Y-%m-%d %{-} "
+caption splitonly "%{= wk} %{= KY} [%n]%t @ %H %{-} %= %{= KR} %l %{-} | %{= KG} %Y-%m-%d %{-} "
+
+#hotkey
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+#attrcolor b ".I"
+# tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+#termcapinfo xterm ti@:te@
+# erase background with current bg color
+#defbce "on" 
+
+#set hot key to fast select
+#bindkey "alt-1" select 1 (replace "alt-1" with literal character in terminal) 
+#PS. alt-1 literal == c-v alt-1 in insert mode of vim
+
+bindkey "1" select 1
+bindkey "2" select 2
+bindkey "3" select 3
+bindkey "4" select 4
+bindkey "5" select 5
+bindkey "6" select 6
+bindkey "7" select 7
+bindkey "8" select 8
+bindkey "9" select 9
+bindkey "0" select 0
+bindkey "-" other
+bindkey "`" copy
+#the below should work too, But it fail in my machine
+#bindkey "\024" mapdefault
+#bindkey "\261" select 1
+#bindkey "\262" select 2
+#bindkey "\263" select 3
+#bindkey "\264" select 4
+#bindkey "\265" select 5
+#bindkey "\266" select 6
+#bindkey "\267" select 7
+#bindkey "\270" select 8
+#bindkey "\271" select 9
+#bindkey "\260" select 0
