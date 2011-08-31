@@ -17,6 +17,8 @@
     difft= difftool
     diffw= diff --word-diff
     fdiff = diff --name-status
+    sbeach = submodule foreach
+    bnote = "!git config branch.$(git symbolic-ref HEAD|sed \"s/refs\\/heads\\///\").note $( if [ $# -gt 0 ]; then $1; fi)"
 [merge]
 	tool = kdiff3
 [log]
