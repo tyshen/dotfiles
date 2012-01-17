@@ -34,3 +34,5 @@
 	tool = vimdiff
 [mergetool "vimmerge"]
     cmd = "vim --noplugin -d \"$PWD/$MERGED\"  +\":split $PWD/$REMOTE\" +\":set buftype=nowrite\" +\":vertical diffsplit $PWD/$LOCAL\" +\":set buftype=nowrite\"  +\":vertical diffsplit $PWD/$BASE\" +\":set buftype=nowrite\"  +\":wincmd j\" +\":nmap 1 :diffget BASE:diffupdate\"  +\":nmap 2 :diffget LOCAL:diffupdate\"  +\":nmap 3 :diffget REMOTE:diffupdate\" "
+[core]
+	excludesfile = ~/.gitignore
