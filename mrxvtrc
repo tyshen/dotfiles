@@ -133,14 +133,14 @@ Mrxvt.xft:			1
 #Mrxvt.xftFont:			Fixed
 #Mrxvt.xftSize:			13
 
-#exceed had bad performance with truetype
+#exceed had bad performance with truetype xfs and antialias
 Mrxvt.xftFont:			Fixed
 #Mrxvt.xftFont:			Inconsolata
-Mrxvt.xftSize:			16
+#Mrxvt.xftSize:			16
 #Mrxvt.xftFont:			Monaco
 #Mrxvt.xftFont:		        ProFontWindows	
 #Mrxvt.xftFont:			Droid Sans Mono
-#Mrxvt.xftSize:			14
+Mrxvt.xftSize:			14
 
 Mrxvt.xftAntialias:		1
 
