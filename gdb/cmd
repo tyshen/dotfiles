@@ -18,7 +18,7 @@ end
 
 #print ulUSN
 define pusn
-  print $arg0.toFullScope(0,5,0)
+  print $arg0.toFullScope(0,5,0,0)
 end
 document pusn
   print usn objec content
