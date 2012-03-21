@@ -96,3 +96,20 @@ define pqmapsize
     output $len
     printf "\n"
 end
+
+define pqsl
+    printq4stringlist $arg0
+end
+
+define pqil
+    set $list = $arg0
+    set $len = $list.numNodes
+    output $len
+    printf " items in the list\n"
+    set $it = $list.firstNode
+    while $it != 0
+        output $it->data
+        printf "\n"
+        set $it = $it->next
+    end
+end
