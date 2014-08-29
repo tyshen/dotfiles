@@ -40,11 +40,15 @@ document parg
   print CArgv content
 end
 
-define dumphdb
+define dh
   print hdbDumpObj($arg0)
 end
-document dumphdb
+document dh 
   dump hdbid by hdbDumpObj
+end
+
+define rp
+  r -play $arg0
 end
 
 #
@@ -113,3 +117,15 @@ define pqil
         set $it = $it->next
     end
 end
+
+# call with dump_breaks file.txt
+define dump_breaks
+set logging file $arg0
+set logging redirect on
+set logging on
+info breakpoints
+set logging off
+set logging redirect off
+shell perl -n -e 'print "break $1\n" if /^\d+.+?(\S+)$/g' $arg0 > $arg0.gdb
+end
+

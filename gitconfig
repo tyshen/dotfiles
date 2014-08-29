@@ -10,8 +10,11 @@
     co = checkout
     df = diff
     logp = log -p
-    logg = log --graph --decorate --oneline
-    logl = log --oneline --pretty='format:%C(yellow) %h%d %Cred%cn %Creset%cd %Cred%m%Creset %s%Creset' --date=short
+    logsg = log --graph --decorate --oneline
+    logg = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s]]]"
+    #logl = log --oneline --pretty='format:%C(yellow) %h%d %Cred%cn %Creset%cd %Cred%m%Creset %s%Creset' --date=short
+    logl = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    gitlog = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n%C(white)%s%C(reset) %C(bold white)- %an%C(reset)' --abbrev-commit
     ls = ls-files
     sbr = show-branch
     difft= difftool

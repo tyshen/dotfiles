@@ -1,5 +1,5 @@
 vbell off
-escape `e
+escape `r
 #hardstatus alwayslastline '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%c %{g}]'
 #hardstatus alwayslastline '%{= mK}%-Lw%{= KW}%50>%n%f* %t%{= mK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
 #hardstatus alwayslastline " %-Lw%{= Bw}%n%f %t%{-}%+Lw %=| %0c:%s "
@@ -26,6 +26,16 @@ termcapinfo xterm* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 #termcapinfo xterm ti@:te@
 # erase background with current bg color
 #defbce "on" 
+
+
+# mouse tracking allows to switch region focus by clicking
+mousetrack on
+
+select 0
+bind c screen 1 # window numbering starts at 1 not 0
+bind 0 select 10
+bind s split
+
 
 #set hot key to fast select
 #bindkey "alt-1" select 1 (replace "alt-1" with literal character in terminal) 
@@ -55,3 +65,30 @@ bindkey "`" copy
 #bindkey "\270" select 8
 #bindkey "\271" select 9
 #bindkey "\260" select 0
+
+bindkey "[1;5D" focus left
+bindkey "[1;5C" focus right
+bindkey "[1;5A" focus up
+bindkey "[1;5B" focus down
+# switch windows with F3 (prev) and F4 (next)
+bindkey "OR" prev
+bindkey "OS" next
+# switch layouts with Ctrl+F3 (prev layout) and Ctrl+F4 (next)
+bindkey "O1;5R" layout prev
+bindkey "O1;5S" layout next
+# F2 puts Screen into resize mode. Resize regions using hjkl keys.
+bindkey "OQ" eval "command -c rsz" # enter resize mode
+
+
+# use hjkl keys to resize regions
+bind -c rsz h eval "resize -h -5" "command -c rsz"
+bind -c rsz j eval "resize -v -5" "command -c rsz"
+bind -c rsz k eval "resize -v +5" "command -c rsz"
+bind -c rsz l eval "resize -h +5" "command -c rsz"
+
+# quickly switch between regions using tab and arrows
+# bind -c rsz \t    eval "focus"       "command -c rsz" # Tab
+# bind -c rsz -k kl eval "focus left"  "command -c rsz" # Left
+# bind -c rsz -k kr eval "focus right" "command -c rsz" # Right
+# bind -c rsz -k ku eval "focus up"    "command -c rsz" # Up
+# bind -c rsz -k kd eval "focus down"  "command -c rsz" # Down
